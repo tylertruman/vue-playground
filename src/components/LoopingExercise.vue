@@ -14,19 +14,18 @@
             Then use the index to print the players place in the collection.
           </p>
           <!-- add the v-for to player-card -->
-          <div class="player-card text-center">
-            <h5>{{}}</h5>
+          <div class="player-card text-center" v-for="player in state.players" :key="player.id">
             <div>
-              <img class="img" src="" />
+              <img class="img" :src="player.photo" />
             </div>
             <div>
-              <span>{{}}</span>
+              <span>{{player.name}}</span>
             </div>
             <div>
-              <span>{{}}</span>
+              <span>{{player.position}}</span>
             </div>
             <div>
-              <span>{{}}</span>
+              <span>{{player.number}}</span>
             </div>
           </div>
         </div>
@@ -38,8 +37,10 @@
             property on the object we want to print the key(property name) and
             value contained at that key.
           </p>
-          <div class="blog" v-for="(value, key) in state.blog" :key="key">
-            <p>{{}}: {{}}</p>
+          <!-- val & x are banana words-->
+          <div class="blog" v-for="(val,x) in state.blog" :key="x">
+            
+            <kbd>{{x}}: {{val}}</kbd>
           </div>
         </div>
       </div>

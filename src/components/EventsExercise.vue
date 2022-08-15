@@ -13,7 +13,7 @@
           </p>
           <!-- add event listener to the button element -->
           <button class="btn btn-primary m-2">Add 1</button>
-          <p>The button has been clicked {{}} times.</p>
+          <p>The button has been clicked {{state.counter}} times.</p>
         </div>
         <div class="border p-1">
           <h5>Events Calling A Method</h5>
@@ -26,7 +26,7 @@
             "greeting" property and pass its value into an alert().
           </p>
           <!-- add event listener to the button element -->
-          <button class="btn btn-primary m-2">Greet</button>
+          <button class="btn btn-primary m-2" @click="greet()">Greet</button>
         </div>
       </div>
     </div>
@@ -42,12 +42,18 @@ export default {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
       //add property called "counter"
+      counter: 0,
       //add property called "greeting"
+      greeting: 'Hello World!',
       //create a method called "greet"
+     
     });
     return {
       state,
       // Add your methods here
+      greet(){
+        alert(state.greeting)
+      }
     };
   },
   components: {},
